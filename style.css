@@ -1,0 +1,139 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+	font-family: sans-serif;
+}
+body {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+	font-size: 14pt;
+	background-color: #2D2B40;
+	min-height: 100vh;
+}
+.title {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	display: block;
+	text-align: center;
+	padding: 20px;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	font-weight: 400;
+	color: white;
+	background-color: #717BE3;
+	box-shadow: 0 0 30px #717BE3;
+}
+
+/*---- LAYOUTS ----*/
+.device { /*---- MAIN LAYOUT ----*/
+	display: inline-flex;
+	flex-flow: column nowrap;
+	border-radius: 15px;
+	overflow: hidden;
+	background-color: #e76666;
+	box-shadow: 5px 5px 30px  #924545;
+	border: 4px #924545 solid;
+	width: 240px;
+	height: 370px;
+}
+.buttons { /*---- BUTONS LAYOUT ----*/
+	--gap: 6px;
+	padding: 10px;
+	display: grid;
+	width: 100%;
+	height: 100%;
+	grid-gap: var(--gap);
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-areas:
+		"clear clear rm ops"
+		"nbs nbs nbs ops"
+		"nbs nbs nbs ops"
+		"nbs nbs nbs ops"
+		"zero dot calc calc";
+}
+.numbers { /* LAYOUT Contain all numbers buttons [1 2 3 4 5 6 7 8 9] */
+	display: grid;
+	grid-gap: var(--gap);
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-area: nbs;
+}
+.logic-op { /* LAYOUT Contain all logic operator buttons [* + - /] */
+	grid-gap: var(--gap);
+	display: grid;
+	grid-area: ops;
+}
+.error { /* error message layout */
+	display: inline-block;
+	color: #dd330e;
+	font-weight: 200;
+}
+
+#expretion { /* expretion layout (like 1 + 1) */
+	padding: 25px 5px;
+	overflow: auto;
+    font-size: 14pt;
+    height: 72px;
+    background-color: #f3f3f3;
+    text-align: right;
+    color: #333;
+    font-weight: 500;
+}
+#result { /* result layout */
+	background-color: #f3f3f3;
+    text-align: right;
+    color: #333;
+    font-size: 10pt;
+    font-weight: 300;
+    height: 25px;
+    padding: 5px;
+    padding-right: 15px;
+}
+
+/*---- BUTTON ----*/
+.buttons button { /* main buttons style */
+	height: 44px;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	border: none;
+	font-size: 14pt;
+	transition: .2s;
+	user-select: none;
+	border-radius: 5px;
+	box-shadow: -5px -5px 10px #444 inset,
+		5px 5px 10px white inset;
+}
+.buttons button:hover { /* main buttons hover style */
+	background-color: #01e200;
+	color: snow;
+}
+.buttons button:active { /* main buttons active style */
+	background-color: #01a500;
+	color: snow;
+}
+
+/* auther buttons style */
+.clear {
+	grid-area: clear;
+	background-color: #1E8BFF;
+}
+.number { /* buttons contain this values [0 1 2 3 4 5 6 7 8 9 .] */
+	background-color: #B0E6FF;
+}
+.rm {
+	grid-area: rm;
+}
+#calc {
+	grid-area: calc;
+}
+.zero {
+	grid-area: zero;
+}
+.dot {
+	grid-area: dot;
+}
